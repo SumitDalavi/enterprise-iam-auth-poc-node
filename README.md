@@ -1,50 +1,50 @@
-# Enterprise IAM & Auth Service (Node.js PoC) 🔐
+# Enterprise IAM & Auth Service PoC (Node.js) 🔐
 
-A comprehensive Proof of Concept demonstrating an Enterprise-Grade Identity and Access Management (IAM) Service built with **Node.js, Express, TypeScript, and Prisma**.
+> A modular Identity and Access Management (IAM) and Single Sign-On (SSO) service built with Node.js, Express, and TypeScript, demonstrating enterprise-grade security patterns.
 
-## 📖 Overview
+## The Problem
 
-This is the Node.js counterpart to the Python IAM PoC. It utilizes Domain-Driven Design (DDD) to separate concerns such as core security, authentication, and Role-Based Access Control (RBAC) in a strictly typed TypeScript environment.
+Most simple apps use basic JWTs and tightly couple their user authentication with their core business logic. In enterprise environments, Identity must be a centralized, secure service capable of handling complex RBAC (Role-Based Access Control), SSO (Single Sign-On), and secure token lifecycles without leaking credentials to downstream microservices.
 
-## ✨ Enterprise Features
+## The Solution
 
-- **TypeScript**: Full type safety for requests, responses, and internal services.
-- **Prisma ORM**: Modern database access with auto-generated types (using SQLite for this PoC).
-- **JWT (JSON Web Tokens)**: Secure token generation via `jsonwebtoken`.
-- **RBAC Middleware**: Express middleware extracting claims and enforcing roles.
-- **Password Security**: `bcryptjs` password hashing.
-- **SSO Simulation**: Mock federated login flows.
+This PoC separates Identity into a standalone service using Node.js and TypeScript. It provides:
+1. **SSO Simulation**: OAuth2/OIDC patterns with authorization codes and token exchanges.
+2. **Enterprise RBAC**: Decoupled role and permission management via robust middleware.
+3. **Secure Token Issuance**: Short-lived access tokens and secure refresh token handling.
+
+By keeping identity decoupled, downstream services only need to validate the cryptographic signature of the token, allowing the architecture to scale securely.
+
+## Why This Over the Obvious Alternative
+
+While services like Auth0 exist, building a custom IAM in TypeScript demonstrates a deep understanding of token lifecycles, asymmetric cryptography, middleware patterns in Express, and proper separation of concerns. TypeScript enforces strict types for payloads and configurations, making the system significantly more robust than plain JavaScript implementations.
+
+## 🛠️ Tech Stack
+
+- **Language**: TypeScript
+- **Framework**: Node.js / Express
+- **Security**: jsonwebtoken, bcrypt
+- **Containerization**: Docker
+
+## Decision Log
+
+| Decision | Rationale |
+|----------|-----------|
+| TypeScript over JavaScript | Enforces strict typing for JWT payloads, user objects, and API requests, preventing common runtime errors in identity systems. |
+| Express Middleware | Provides a clean, composable way to implement authentication checks and RBAC across different routes without duplicating logic. |
+| Decoupled RBAC | Roles are mapped to permissions dynamically rather than hardcoding scopes into user records, mimicking enterprise Active Directory/LDAP patterns. |
 
 ## 🚀 Getting Started
 
-### Local Development (Without Docker)
+```bash
+docker-compose up -d --build
+```
+The API will be available at `http://localhost:3000`.
 
-1. **Install dependencies**:
-   ```bash
-   npm install
-   ```
-2. **Setup the Database**:
-   ```bash
-   npm run prisma:push
-   ```
-3. **Run the application**:
-   ```bash
-   npm run dev
-   ```
+## 📁 Project Structure
 
-### Running with Docker
-
-1. **Build and start the container**:
-   ```bash
-   docker-compose up -d --build
-   ```
-2. **Access the API**: 
-   The service will be running on `http://localhost:8080`.
-
-## 📁 Architecture Details
-
-For a detailed breakdown of the design patterns used, see the [Architecture Documentation](docs/ARCHITECTURE.md).
+For a detailed breakdown of the codebase and technical design decisions, please refer to the [Architecture Documentation](docs/ARCHITECTURE.md).
 
 ## 👨‍💻 Author
 
-*Created as a technical showcase for enterprise backend engineering.*
+*Built to demonstrate enterprise Identity and Access Management patterns in a Node.js ecosystem.*
