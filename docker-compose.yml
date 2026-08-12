@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  iam-service-node:
+    build: .
+    container_name: enterprise-iam-poc-node
+    ports:
+      - "8080:8080"
+    environment:
+      - JWT_SECRET=super_secret_jwt_key_for_node_poc
+      - DATABASE_URL=file:./dev.db
+    volumes:
+      - ./src:/app/src
+      - ./prisma/dev.db:/app/prisma/dev.db
+    restart: always
