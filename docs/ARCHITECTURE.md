@@ -1,5 +1,17 @@
 # Architecture: Enterprise IAM PoC (Node.js)
 
+## System Diagram
+The following Mermaid.js sequence diagram maps the core workflow and interactions:
+
+```mermaid
+sequenceDiagram
+    client->>App: Login
+App->>IdP: Redirect
+IdP->>App: Callback with Code
+App->>IdP: Exchange for Token
+```
+
+
 This document outlines the architectural decisions and design patterns used in the Node.js/TypeScript version of the Enterprise IAM Proof of Concept.
 
 ## 🏗️ Domain-Driven Design (DDD) Modularity
