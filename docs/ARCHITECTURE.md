@@ -1,18 +1,28 @@
-# Architecture: Enterprise IAM PoC (Node.js)
+# Architecture — enterprise-iam-auth-poc-node
+> Last updated: 2026-08-29 | Maturity: Deprecated
+> _See Python version for canonical implementation._
 
 ## System Diagram
-The following Mermaid.js sequence diagram maps the core workflow and interactions:
-
 ```mermaid
-sequenceDiagram
-    client->>App: Login
-App->>IdP: Redirect
-IdP->>App: Callback with Code
-App->>IdP: Exchange for Token
+flowchart TD
+    Client(["Client App"])
+    API["Express API"]
+    DB[("SQLite via Prisma")]
+
+    Client -->|"1. POST /login"| API
+    API -->|"2. Verify"| DB
+    DB -.-> API
+    API -->|"3. Sign JWT"| API
+    API -->|"4. Return Token"| Client
 ```
 
+## Component Table
+| Component | File | Responsibility | Tech |
+|---|---|---|---|
+| Routes | `src/routes/` | Express route definitions | Node.js |
+| Auth Middleware | `src/middleware/auth.ts` | Token validation & RBAC | TypeScript |
+| Database | `prisma/` | ORM schemas | Prisma |
 
-This document outlines the architectural decisions and design patterns used in the Node.js/TypeScript version of the Enterprise IAM Proof of Concept.
 
 ## 🏗️ Domain-Driven Design (DDD) Modularity
 

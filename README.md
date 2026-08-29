@@ -1,6 +1,7 @@
 # Enterprise IAM & Auth Service PoC (Node.js) 🔐
 
-> A modular Identity and Access Management (IAM) and Single Sign-On (SSO) service built with Node.js, Express, and TypeScript, demonstrating enterprise-grade security patterns.
+> **Maturity:** 🛑 Deprecated
+> _This Node.js implementation is deprecated. The **canonical version** of this architecture is now the [Python Implementation](https://github.com/SumitDalavi/enterprise-iam-auth-poc-python)._
 
 > **⚠️ PoC Note:** SSO endpoints use simulated OAuth2/OIDC flows (not connected to a real IdP like Okta or Azure AD). All auth logic (JWT, RBAC, password hashing) is fully functional.
 
@@ -47,11 +48,20 @@ docker-compose up -d --build
 ```
 The API will be available at `http://localhost:3000`.
 
-## 📁 Project Structure
+## Mock Boundaries (Honest Scope)
 
-For a detailed breakdown of the codebase and technical design decisions, please refer to the [Architecture Documentation](docs/ARCHITECTURE.md).
+| What | Status | Details |
+|---|---|---|
+| JWT & RBAC | **Real** | jsonwebtoken and bcrypt validate real tokens and passwords. |
+| DB Storage | **Real** | SQLite (via Prisma) is used for storage. |
+| External IdP | **Mocked** | SSO endpoints simulate OAuth2/OIDC without contacting real IdPs. |
 
+## 📚 Documentation
 
+- [Architecture](docs/ARCHITECTURE.md) — System diagram and component details
+- [Runbook](docs/runbook.md) — Setup, commands, and expected outputs
+- [Decisions](docs/decisions.md) — ADRs for IAM choices (and deprecation)
+- [Changelog](docs/changelog.md) — Change history
 ## 📋 Prerequisites
 
 | Tool | Version | Purpose |
@@ -161,3 +171,8 @@ docker-compose down
 - **CI Pipeline Remediation:** Successfully resolved all CI/CD pipeline failures and established baseline CI workflows.
 - **Specific Fix:** Added and configured robust GitHub Actions workflows for automated testing, linting, and formatting.
 - **Status:** 🟩 Passing
+
+
+## 📁 Project Structure
+
+For a detailed breakdown of the codebase and technical design decisions, please refer to the [Architecture Documentation](docs/ARCHITECTURE.md).
