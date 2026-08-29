@@ -35,7 +35,7 @@ export class AuthService {
       throw new Error('Invalid credentials');
     }
 
-    const rolesList = user.roles.split(',').map(r => r.trim());
+    const rolesList = user.roles.split(',').map((r: any) => r.trim());
     
     const token = generateToken({
       sub: user.id,
