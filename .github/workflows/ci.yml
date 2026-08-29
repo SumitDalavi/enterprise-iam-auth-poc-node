@@ -19,7 +19,9 @@ jobs:
       - name: Install Dependencies
         run: npm ci
       - name: Typecheck
-        run: npx tsc --noEmit
+        run: |
+          npx prisma generate
+          npx tsc --noEmit
       - name: Run Tests
         run: npm test
   docker-build:
