@@ -5,7 +5,7 @@ import { generateToken } from '../utils/jwt';
 export const ssoLogin = (req: Request, res: Response) => {
   const { provider } = req.params;
   
-  if (!['google', 'okta', 'azure'].includes(provider)) {
+  if (!['google', 'okta', 'azure'].includes(provider as string)) {
     return res.status(400).json({ error: 'Unsupported SSO provider' });
   }
 
