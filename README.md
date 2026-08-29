@@ -176,3 +176,20 @@ docker-compose down
 ## 📁 Project Structure
 
 For a detailed breakdown of the codebase and technical design decisions, please refer to the [Architecture Documentation](docs/ARCHITECTURE.md).
+
+## 📖 Overview
+
+This is the Node.js counterpart to the Python IAM PoC. It utilizes Domain-Driven Design (DDD) to separate concerns such as core security, authentication, and Role-Based Access Control (RBAC) in a strictly typed TypeScript environment.
+
+## ✨ Enterprise Features
+
+- **TypeScript**: Full type safety for requests, responses, and internal services.
+- **Prisma ORM**: Modern database access with auto-generated types (using SQLite for this PoC).
+- **JWT (JSON Web Tokens)**: Secure token generation via `jsonwebtoken`.
+- **RBAC Middleware**: Express middleware extracting claims and enforcing roles.
+- **Password Security**: `bcryptjs` password hashing.
+- **SSO Simulation**: Mock federated login flows.
+
+## 📁 Architecture Details
+
+For a detailed breakdown of the design patterns used, see the [Architecture Documentation](docs/ARCHITECTURE.md).
