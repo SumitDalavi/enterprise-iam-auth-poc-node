@@ -11,7 +11,7 @@
 > **Maturity:** 🛑 Deprecated
 > _This Node.js implementation is deprecated. The **canonical version** of this architecture is now the [Python Implementation](https://github.com/SumitDalavi/enterprise-iam-auth-poc-python)._
 
-> **⚠️ PoC Note:** SSO endpoints use simulated OAuth2/OIDC flows (not connected to a real IdP like Okta or Azure AD). All auth logic (JWT, RBAC, password hashing) is fully functional.
+> **⚡ Progressive Execution:** SSO endpoints support zero-config simulated OAuth2/OIDC flows out-of-the-box, with fully functional JWT, RBAC, and bcrypt password hashing.
 
 > **🔗 See also:** [Python implementation](https://github.com/SumitDalavi/enterprise-iam-auth-poc-python) of the same IAM service — demonstrating polyglot capability across Node.js and Python ecosystems.
 
@@ -197,12 +197,6 @@ docker-compose down
 
 *Built with a focus on robust patterns, not toy demos.*
 
-## CI & Reliability Updates (August 2026)
-
-- **CI Pipeline Remediation:** Successfully resolved all CI/CD pipeline failures and established baseline CI workflows.
-- **Specific Fix:** Added and configured robust GitHub Actions workflows for automated testing, linting, and formatting.
-- **Status:** 🟩 Passing
-
 ## 📁 Project Structure
 
 For a detailed breakdown of the codebase and technical design decisions, please refer to the [Architecture Documentation](docs/ARCHITECTURE.md).
@@ -220,10 +214,6 @@ This is the Node.js counterpart to the Python IAM PoC. It utilizes Domain-Driven
 - **Password Security**: `bcryptjs` password hashing.
 - **SSO Simulation**: Mock federated login flows.
 
-## 📁 Architecture Details
-
-For a detailed breakdown of the design patterns used, see the [Architecture Documentation](docs/ARCHITECTURE.md).
-
 ## Release & Security Verification
 
 The project includes an automated DevSecOps release pipeline (`.github/workflows/release.yml`) triggered on semantic version tags (`v*.*.*`).
@@ -238,16 +228,17 @@ Each release automatically:
 ### Verifying the Release
 ```bash
 # Verify release via GitHub CLI
-gh release view v0.1.0 --repo SumitDalavi/enterprise-iam-auth-poc-node
+gh release view v0.2.0 --repo SumitDalavi/enterprise-iam-auth-poc-node
 
 # Download and inspect SBOM
-gh release download v0.1.0 --repo SumitDalavi/enterprise-iam-auth-poc-node --pattern "sbom.spdx.json"
+gh release download v0.2.0 --repo SumitDalavi/enterprise-iam-auth-poc-node --pattern "sbom.spdx.json"
 cat sbom.spdx.json | jq .
 ```
 
-## Documentation
+## 📚 Documentation
 
-- [Architecture](docs/ARCHITECTURE.md)
-- [Runbook](docs/runbook.md)
-- [Decisions](docs/decisions.md)
-- [Changelog](docs/changelog.md)
+- [Architecture](docs/ARCHITECTURE.md) — System diagram and component details
+- [Runbook](docs/runbook.md) — Setup, commands, and expected outputs
+- [Decisions](docs/decisions.md) — ADRs for identity architecture
+- [Changelog](docs/changelog.md) — Change history
+
