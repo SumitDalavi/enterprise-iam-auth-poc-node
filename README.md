@@ -1,20 +1,19 @@
 # Enterprise IAM & Auth Service PoC (Node.js) 🔐
 
-[![Release](https://img.shields.io/github/v/release/SumitDalavi/enterprise-iam-auth-poc-node?color=blue&logo=github)](https://github.com/SumitDalavi/enterprise-iam-auth-poc-node/releases)
+[![CI Pipeline](https://github.com/SumitDalavi/enterprise-iam-auth-poc-node/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/SumitDalavi/enterprise-iam-auth-poc-node/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/SumitDalavi/enterprise-iam-auth-poc-node?color=0969da&label=release&logo=github)](https://github.com/SumitDalavi/enterprise-iam-auth-poc-node/releases)
 [![Release Workflow](https://github.com/SumitDalavi/enterprise-iam-auth-poc-node/actions/workflows/release.yml/badge.svg)](https://github.com/SumitDalavi/enterprise-iam-auth-poc-node/actions/workflows/release.yml)
-[![SBOM](https://img.shields.io/badge/SBOM-SPDX%20JSON-blueviolet?logo=spdx)](https://github.com/SumitDalavi/enterprise-iam-auth-poc-node/releases)
-
-[![Release](https://img.shields.io/github/v/release/SumitDalavi/enterprise-iam-auth-poc-node?color=blue&logo=github)](https://github.com/SumitDalavi/enterprise-iam-auth-poc-node/releases)
-[![SBOM](https://img.shields.io/badge/SBOM-SPDX%20JSON-blueviolet?logo=spdx)](https://github.com/SumitDalavi/enterprise-iam-auth-poc-node/releases)
+[![GHCR Container](https://img.shields.io/badge/ghcr.io-v0.2.0-blue?logo=docker&logoColor=white)](https://github.com/SumitDalavi/enterprise-iam-auth-poc-node/pkgs/container/enterprise-iam-auth-poc-node)
+[![Node.js](https://img.shields.io/badge/Node.js-20+-339933?logo=nodedotjs&logoColor=white)](https://nodejs.org)
+[![SBOM](https://img.shields.io/badge/SBOM-SPDX%202.3-blueviolet?logo=spdx)](https://github.com/SumitDalavi/enterprise-iam-auth-poc-node/releases/tag/v0.2.0)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 > **Maturity:** 🛑 Deprecated
 > _This Node.js implementation is deprecated. The **canonical version** of this architecture is now the [Python Implementation](https://github.com/SumitDalavi/enterprise-iam-auth-poc-python)._
 
 > **⚠️ PoC Note:** SSO endpoints use simulated OAuth2/OIDC flows (not connected to a real IdP like Okta or Azure AD). All auth logic (JWT, RBAC, password hashing) is fully functional.
 
-
 > **🔗 See also:** [Python implementation](https://github.com/SumitDalavi/enterprise-iam-auth-poc-python) of the same IAM service — demonstrating polyglot capability across Node.js and Python ecosystems.
-
 
 ## The Problem
 
@@ -203,7 +202,6 @@ docker-compose down
 - **CI Pipeline Remediation:** Successfully resolved all CI/CD pipeline failures and established baseline CI workflows.
 - **Specific Fix:** Added and configured robust GitHub Actions workflows for automated testing, linting, and formatting.
 - **Status:** 🟩 Passing
-
 
 ## 📁 Project Structure
 
