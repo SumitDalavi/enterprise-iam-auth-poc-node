@@ -8,8 +8,7 @@
 [![SBOM](https://img.shields.io/badge/SBOM-SPDX%202.3-blueviolet?logo=spdx)](https://github.com/SumitDalavi/enterprise-iam-auth-poc-node/releases/tag/v0.2.0)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-> **Maturity:** 🛑 Deprecated
-> _This Node.js implementation is deprecated. The **canonical version** of this architecture is now the [Python Implementation](https://github.com/SumitDalavi/enterprise-iam-auth-poc-python)._
+> 🛑 **Note:** This Node.js implementation serves as a reference POC; the canonical active version of this architecture is the [Python Implementation](https://github.com/SumitDalavi/enterprise-iam-auth-poc-python).
 
 > **⚡ Progressive Execution:** SSO endpoints support zero-config simulated OAuth2/OIDC flows out-of-the-box, with fully functional JWT, RBAC, and bcrypt password hashing.
 
